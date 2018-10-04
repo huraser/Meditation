@@ -14,18 +14,30 @@
     <button class="add0ption">Yes</button>
   </div>
   <div class="resultsection"></div>
-<button>No</button>
+<button class="submit">No</button>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 $(function() {
-  $(`.resultsectionn`).hide()
+  $(`.resultsection`).hide()
 
   var add_option = function() {
     $(`.inputs`).append(`<input></input>`)
   }
-
   $(`.add0ption`).click(add_option)
+
+  var options = []
+  var submit = function() {
+    $(`.inputsection`).hide()
+    $(`.resultsection`).css(`display`, `flex`)
+    $(`input`).each(function() {
+      options.push($(this).val())
+      })
+      var winner = options [Math.floor(Math.random() * options.length)]
+      console.log(winner)
+      $(`.resultatsection`).text(winner)
+  }
+  $(`.submit`).click(submit)
 })
 </script>
 </body>
